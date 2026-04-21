@@ -6,7 +6,4 @@ psycopg2-binary
 dj-database-url
 gunicorn
 whitenoise
-lucide-react
-framer-motion
-axios
 python-dateutil
