@@ -49,7 +49,16 @@ const Register = () => {
       await api.post('register/', formData);
       navigate('/login');
     } catch (err) {
-      setError(err.response?.data?.username ? 'Username already exists' : 'Registration failed');
+      if (err.response?.data) {
+        // Extract the first error message available
+        const errorData = err.response.data;
+        const firstError = typeof errorData === 'object' 
+          ? Object.values(errorData).flat()[0] 
+          : 'Registration failed';
+        setError(firstError);
+      } else {
+        setError('Registration failed. Please check your connection.');
+      }
     }
   };
 

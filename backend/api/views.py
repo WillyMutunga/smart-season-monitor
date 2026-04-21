@@ -18,8 +18,7 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = UserSerializer
 
     def perform_create(self, serializer):
-        password = make_password(self.request.data.get('password'))
-        serializer.save(password=password, role='AGENT')
+        serializer.save(role='AGENT')
 
 class ProfileView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
