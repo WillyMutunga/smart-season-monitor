@@ -4,7 +4,11 @@ import axios from 'axios';
 const getBaseURL = () => {
   const envUrl = import.meta.env.VITE_API_BASE_URL;
   if (envUrl) {
-    return envUrl.endsWith('/') ? envUrl : `${envUrl}/`;
+    let url = envUrl.endsWith('/') ? envUrl : `${envUrl}/`;
+    if (!url.endsWith('/api/')) {
+      url = `${url}api/`;
+    }
+    return url;
   }
   // Default for development
   return 'http://localhost:8000/api/';
