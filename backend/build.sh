@@ -15,3 +15,6 @@ pip install -r requirements.txt
 # Gather static files and migrate
 python manage.py collectstatic --no-input
 python manage.py migrate
+
+# Seed database with admin and sample data
+python seed.py
