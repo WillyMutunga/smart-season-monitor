@@ -103,6 +103,7 @@ STATICFILES_DIRS = [
 ]
 # Configure WhiteNoise for production static serving
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+WHITENOISE_ROOT = os.path.join(BASE_DIR, '../frontend/dist')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'api.User'

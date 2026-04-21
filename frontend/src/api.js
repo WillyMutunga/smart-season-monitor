@@ -10,7 +10,15 @@ const getBaseURL = () => {
     }
     return url;
   }
-  // Default for development
+  
+  // No env var provided - check if we are on a hosted domain (not localhost)
+  if (typeof window !== 'undefined' && 
+      window.location.hostname !== 'localhost' && 
+      window.location.hostname !== '127.0.0.1') {
+    return `${window.location.origin}/api/`;
+  }
+
+  // Default for local development
   return 'http://localhost:8000/api/';
 };
 
